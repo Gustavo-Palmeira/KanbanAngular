@@ -1,0 +1,65 @@
+
+<div class="container"> 
+    <div class="row">
+        <mat-card class="kanban">
+            <div class="title-box">
+                <mat-icon class="icon">task</mat-icon>
+                <h2 class="title">O que é Kanban?</h2>
+            </div>
+            <p class="text">Kanban é um termo japonês que significa “cartão”. O sistema recebeu esse nome pela própria empresa que o desenvolveu, a Toyota.</p>
+            <p class="text">Ele nada mais é do que um sistema ágil e visual para controle de produção ou gestão de tarefas.</p>
+        </mat-card>
+    
+        <div class="kanban">
+            <img src="../../assets/postit2.png" alt="postit" width="120vw">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="kanban">
+            <img src="../../assets/postit3.png" alt="postit" width="120vw">
+        </div>
+
+        <mat-card class="kanban">
+            <div class="title-box">
+                <mat-icon class="icon">speed</mat-icon>
+                <h2 class="title">Agilidade</h2>
+            </div>
+            <p class="text">Ser ágil significa permitir que as tarefas sejam gerenciadas com rapidez, acompanhando o ritmo de trabalho de equipes que possuem entregas com prazos bem apertados e que estão sempre correndo contra o tempo.</p>
+        </mat-card>
+    
+        <mat-card class="kanban">
+            <div class="title-box">
+                <mat-icon class="icon">present_to_all</mat-icon>
+                <h2 class="title">Visual</h2>
+            </div>
+            <p class="text">Ser visual significa funcionar através de um esquema de colunas e cartões (que podem ser coloridos), facilitando a visualização do que precisa ser feito por todos os membros da equipe.</p>
+        </mat-card>
+    </div>
+
+    <div class="row">
+        <div cdkDropListGroup class="example-container">
+            <div class="example-content">
+                <h3>To do</h3>
+                <div
+                cdkDropList
+                [cdkDropListData]="todo"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                </div>
+            </div>
+
+            <div class="example-content">
+                <h3>Done</h3>
+                <div
+                    cdkDropList
+                    [cdkDropListData]="done"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                </div>
+                </div>
+            </div>
+    </div>
+</div>
