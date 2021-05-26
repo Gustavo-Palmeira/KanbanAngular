@@ -15,12 +15,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { AboutComponent } from './views/about/about.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { KanbanComponent } from './views/kanban/kanban.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
+    KanbanComponent,
   ],
   imports: [
     BrowserModule,

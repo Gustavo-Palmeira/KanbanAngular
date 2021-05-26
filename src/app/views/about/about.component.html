@@ -42,11 +42,11 @@
             <div class="example-content">
                 <h3>To do</h3>
                 <div
-                cdkDropList
-                [cdkDropListData]="todo"
-                class="example-list"
-                (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                    cdkDropList
+                    [cdkDropListData]="todo"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                     (cdkDropListDropped)="drop($event)">
                     <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
                 </div>
-                </div>
             </div>
+        </div>
     </div>
 </div>

@@ -9,16 +9,15 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 export class AboutComponent implements OnInit {
 
   todo = [
-    'Projeto e-commerce - Laravel',
-    'Projeto Kanban - Angular',
-    'Projeto POO - PHP',
-    'Estudar Node.js',
-    'Estudar React Native'
+    'Aprender Kanban',
+    'Cadastrar tarefa',
+    'Editar tarefa',
+    'Excluir tarefa',
+    'Listar tarefas',
+    'Definir Tag',
   ];
 
-  done = [
-    'Estudar React'
-  ];
+  done = [];
 
   constructor() { }
 
@@ -26,7 +25,7 @@ export class AboutComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
