@@ -15,6 +15,15 @@ export class CreateTaskComponent implements OnInit {
   name = '';
   category = '';
   status = '';
+  selectedValue = '';
+
+  statusSelect = [
+    {value: 'backlog', viewValue: 'Backlog'},
+    {value: 'todo', viewValue: 'To do'},
+    {value: 'inProgress', viewValue: 'In Progress'},
+    {value: 'review', viewValue: 'Review'},
+    {value: 'done', viewValue: 'Done'},
+  ];
 
   ngOnInit(): void {
   }
@@ -26,7 +35,7 @@ export class CreateTaskComponent implements OnInit {
   createTask(): void {
     this.data.name = this.name;
     this.data.category = this.category;
-    this.data.status = this.status;
+    this.data.status = this.selectedValue;
     if (this.data.name !== '' && this.data.category !== '' && this.data.status !== '') {
       this.dialogRef.close(this.data);
     }

@@ -25,40 +25,10 @@
       "id": 4
     },
     {
-      "name": "Teste 2",
-      "category": "Angular",
-      "status": "review",
-      "id": 5
-    },
-    {
-      "name": "adsa",
-      "category": "dsdada",
-      "status": "backlog",
-      "id": 6
-    },
-    {
-      "name": "dsfsdf",
-      "category": "sdfsdfds",
-      "status": "backlog",
-      "id": 7
-    },
-    {
-      "name": "saasdas",
-      "category": "asdasdas",
+      "name": "sdasd",
+      "category": "adsadasd",
       "status": "todo",
-      "id": 8
-    },
-    {
-      "name": "Teste final",
-      "category": "teste",
-      "status": "done",
-      "id": 9
-    },
-    {
-      "name": "asdasd",
-      "category": "dsasd",
-      "status": "backlog",
-      "id": 10
+      "id": 5
     }
   ]
 }

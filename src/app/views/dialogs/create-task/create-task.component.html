@@ -11,7 +11,11 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Estágio inicial</mat-label>
-        <input matInput [(ngModel)]="status" required>
+        <mat-select [(ngModel)]="selectedValue">
+          <mat-option *ngFor="let status of statusSelect" [value]="status.value">
+            {{status.viewValue}}
+          </mat-option>
+        </mat-select>
     </mat-form-field>
 </div>
 

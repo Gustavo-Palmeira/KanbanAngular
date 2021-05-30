@@ -36,30 +36,4 @@
             <p class="text">Ser visual significa funcionar através de um esquema de colunas e cartões (que podem ser coloridos), facilitando a visualização do que precisa ser feito por todos os membros da equipe.</p>
         </mat-card>
     </div>
-
-    <div class="row">
-        <div cdkDropListGroup class="example-container">
-            <div class="example-content">
-                <h3>To do</h3>
-                <div
-                    cdkDropList
-                    [cdkDropListData]="todo"
-                    class="example-list"
-                    (cdkDropListDropped)="drop($event)">
-                    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-                </div>
-            </div>
-
-            <div class="example-content">
-                <h3>Done</h3>
-                <div
-                    cdkDropList
-                    [cdkDropListData]="done"
-                    class="example-list"
-                    (cdkDropListDropped)="drop($event)">
-                    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

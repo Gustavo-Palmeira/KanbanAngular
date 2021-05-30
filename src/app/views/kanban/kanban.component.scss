@@ -31,6 +31,25 @@
   background-color: rgb(95, 95, 95);
 }
 
+.task-tag {
+  font-size: 10px;
+  padding: 0px 7px;
+  background-color: transparent;
+}
+
+.task-tag-span {
+  background-color: #607d8b;
+  padding: 0px 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.box-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 // Kanban
 .container {
   display: flex;
@@ -44,19 +63,49 @@
   vertical-align: top;
 }
 
+.kanban-title {
+  padding: 10px 10px;
+  margin: 10px 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #424242;
+  color: white;
+  font-size: 16px;
+}
+
+.kanban-backlog-title {
+  border-top: solid 2px #FFB6C1;
+}
+
+.kanban-todo-title {
+  border-top: solid 2px #F08080;
+}
+
+.kanban-inProgress-title {
+  border-top: solid 2px #CD5C5C;
+}
+
+.kanban-review-title {
+  border-top: solid 2px #DC143C;
+}
+
+.kanban-done-title {
+  border-top: solid 2px #C71585;
+}
+
 .list {
-  border: solid 1px #ccc;
-  min-height: 60px;
-  background: white;
+  min-height: 30px;
   border-radius: 4px;
   overflow: hidden;
   display: block;
 }
 
 .box {
-  padding: 20px 10px;
+  padding: 10px 10px;
+  margin: 10px 0px;
   border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,7 +125,8 @@
 }
 
 .cdk-drag-placeholder {
-  opacity: 0;
+  opacity: 0.2;
+  border: dashed 1px #fff;
 }
 
 .cdk-drag-animating {
@@ -101,4 +151,3 @@
 .horizontal-box:active {
   cursor: grabbing;
 }
-

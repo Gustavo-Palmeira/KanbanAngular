@@ -44,6 +44,7 @@ export class KanbanComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    //this.backlog = event.container.data.map((task: { status: string; }) => task);
   }
 
   list(): void {
@@ -81,10 +82,14 @@ export class KanbanComponent implements OnInit {
     );
   }
 
+  confirmDeletion(removeId?: number): void {
+
+  }
+
   create(task: CreateTaskVo): void {
     this.taskService.create(task).subscribe(
       () => {
-        this.showSnackBar('Usuário inserido');
+        this.showSnackBar('Tarefa inserida');
         this.list();
       },
       error => {
