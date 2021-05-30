@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { TaskService } from 'src/app/services/task.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Task } from 'src/app/models/task';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTaskComponent } from '../dialogs/create-task/create-task.component';
+import { CreateTaskVo } from '../dialogs/create-task/create-task-vo';
 
 @Component({
   selector: 'app-kanban',
@@ -8,48 +15,27 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class KanbanComponent implements OnInit {
 
-  backlog = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  backlog = new Array<Task>();
+  todo  = new Array<Task>();
+  inProgress = new Array<Task>();
+  review = new Array<Task>();
+  done = new Array<Task>();
 
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  editMode = false;
+  createMode = false;
 
-  inProgress = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  constructor(private taskService: TaskService, private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
-  review = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  ngOnInit(): void {
+    this.list();
+  }
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
-  constructor() { }
-
-  ngOnInit(): void { }
+  showSnackBar(message: string): void {
+    this.snackBar.open(message, '', { duration: 3000 });
+  }
 
   // tslint:disable-next-line: typedef
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -58,6 +44,57 @@ export class KanbanComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+  }
+
+  list(): void {
+    this.taskService.list().subscribe(
+      tasks => {
+        this.backlog = tasks.filter(task => task.status === 'backlog');
+        this.todo = tasks.filter(task => task.status === 'todo');
+        this.inProgress = tasks.filter(task => task.status === 'inProgress');
+        this.review = tasks.filter(task => task.status === 'review');
+        this.done = tasks.filter(task => task.status === 'done');
+      },
+      error => {
+        this.handleServiceError(error);
+      }
+    );
+  }
+
+  confirmCreation(): void {
+    this.createMode = !this.createMode;
+    const result = this.dialog.open(CreateTaskComponent, {
+      width: '700px',
+      data: {
+        name: '',
+        category: '',
+        status: '',
+      },
+    });
+
+    result.afterClosed().subscribe(
+      (createTaskVo: CreateTaskVo) => {
+        if (createTaskVo.name && createTaskVo.category && createTaskVo.status) {
+          this.create(createTaskVo);
+        }
+      }
+    );
+  }
+
+  create(task: CreateTaskVo): void {
+    this.taskService.create(task).subscribe(
+      () => {
+        this.showSnackBar('Usuário inserido');
+        this.list();
+      },
+      error => {
+        this.handleServiceError(error);
+      });
+  }
+
+  handleServiceError(error: HttpErrorResponse): void {
+    const fail = error as HttpErrorResponse;
+    this.showSnackBar(fail.message);
   }
 
 }

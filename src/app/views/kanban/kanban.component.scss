@@ -21,6 +21,16 @@
   margin-right: 10px;
 }
 
+.fab-button {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
+.edit-card {
+  background-color: rgb(95, 95, 95);
+}
+
 // Kanban
 .container {
   display: flex;

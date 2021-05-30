@@ -1,0 +1,21 @@
+<h2 mat-dialog-title class="dialog-box">Nova tarefa</h2>
+
+<div mat-dialog-content class="dialog-box">
+    <mat-form-field>
+        <mat-label>Nome da tarefa</mat-label>
+        <input matInput [(ngModel)]="name" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <input matInput [(ngModel)]="category" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Estágio inicial</mat-label>
+        <input matInput [(ngModel)]="status" required>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="dialog-button-box">
+    <button color="warn" mat-raised-button (click)="cancel()">cancelar</button>
+    <button color="primary" mat-raised-button (click)="createTask()">Salvar</button>
+</div>
