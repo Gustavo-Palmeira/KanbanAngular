@@ -15,8 +15,17 @@ export class TaskService {
     return this.http.get<Task[]>(`${environment.apiUrl}/tasks`);
   }
 
-  create(taks?: Task): Observable<Task> {
-    if (!taks) { return EMPTY; }
-    return this.http.post<Task>(`${environment.apiUrl}/tasks`, taks);
+  create(task?: Task): Observable<Task> {
+    if (!task) { return EMPTY; }
+    return this.http.post<Task>(`${environment.apiUrl}/tasks`, task);
+  }
+
+  update(task?: Task): Observable<Task> {
+    if (!task) { return EMPTY; }
+    return this.http.put<Task>(`${environment.apiUrl}/tasks/${task.id}`, task);
+  }
+
+  remove(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/tasks/${id}`);
   }
 }

@@ -17,18 +17,6 @@
       "name": "Criar tarefas",
       "category": "Angular",
       "status": "inProgress"
-    },
-    {
-      "name": "Teste",
-      "category": "Angular",
-      "status": "todo",
-      "id": 4
-    },
-    {
-      "name": "sdasd",
-      "category": "adsadasd",
-      "status": "todo",
-      "id": 5
     }
   ]
 }

@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { DeleteTaskComponent } from './views/dialogs/delete-task/delete-task.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     AboutComponent,
     KanbanComponent,
     CreateTaskComponent,
+    DeleteTaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Confirmar exclusão</h1>
+
+<div mat-dialog-content>
+    <p>Tem certeza que deseja excluir a task "{{ name }}"?</p>
+</div>
+
+<div mat-dialog-actions class="actions-wrapper">
+    <button mat-raised-button color="warn" (click)="onCancel()">Não</button>
+    <button mat-raised-button color="primary" (click)="onConfirm()">Sim</button>
+</div>
