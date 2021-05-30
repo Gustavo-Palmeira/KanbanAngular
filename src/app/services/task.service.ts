@@ -19,4 +19,8 @@ export class TaskService {
     if (!taks) { return EMPTY; }
     return this.http.post<Task>(`${environment.apiUrl}/tasks`, taks);
   }
+
+  remove(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/tasks/${id}`);
+  }
 }

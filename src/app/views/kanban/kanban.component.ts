@@ -7,6 +7,8 @@ import { Task } from 'src/app/models/task';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskComponent } from '../dialogs/create-task/create-task.component';
 import { CreateTaskVo } from '../dialogs/create-task/create-task-vo';
+import { DeleteTaskVo } from '../dialogs/delete-task/delete-task-vo';
+import { DeleteTaskComponent } from '../dialogs/delete-task/delete-task.component';
 
 @Component({
   selector: 'app-kanban',
@@ -44,7 +46,6 @@ export class KanbanComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
-    //this.backlog = event.container.data.map((task: { status: string; }) => task);
   }
 
   list(): void {
@@ -82,8 +83,23 @@ export class KanbanComponent implements OnInit {
     );
   }
 
-  confirmDeletion(removeId?: number): void {
+  confirmDeletion(item: Task): void {
+    const dialog = this.dialog.open(DeleteTaskComponent, {
+      width: '700px',
+      data: {
+        confirm: false,
+        id: item.id,
+        name: item.name,
+      },
+    });
 
+    dialog.afterClosed().subscribe((deleteTaskVo: DeleteTaskVo) => {
+      if (!deleteTaskVo.confirm) {
+        return;
+      } else {
+        this.remove(deleteTaskVo.id);
+      }
+    });
   }
 
   create(task: CreateTaskVo): void {
@@ -95,6 +111,18 @@ export class KanbanComponent implements OnInit {
       error => {
         this.handleServiceError(error);
       });
+  }
+
+  remove(id?: number): void {
+    if (id) {
+      this.taskService.remove(id).subscribe(() => {
+        this.list();
+        this.showSnackBar('Task removida com sucesso!');
+      },
+      error => {
+        this.handleServiceError(error);
+      });
+    }
   }
 
   handleServiceError(error: HttpErrorResponse): void {
