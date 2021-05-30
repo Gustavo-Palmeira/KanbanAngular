@@ -20,7 +20,7 @@ export class TaskService {
     return this.http.post<Task>(`${environment.apiUrl}/tasks`, task);
   }
 
-  update(task?: Task): Observable<User> {
+  update(task?: Task): Observable<Task> {
     if (!task) { return EMPTY; }
     return this.http.put<Task>(`${environment.apiUrl}/tasks/${task.id}`, task);
   }
