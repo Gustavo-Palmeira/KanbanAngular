@@ -12,10 +12,10 @@ export class CreateTaskComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CreateTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: CreateTaskVo) { }
 
-  name = '';
-  category = '';
-  status = '';
-  selectedValue = '';
+  name = this.data.name;
+  category = this.data.category;
+  status = this.data.status;
+  selectedValue = this.data.status;
 
   statusSelect = [
     {value: 'backlog', viewValue: 'Backlog'},
@@ -29,7 +29,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   cancel(): void {
-    this.dialogRef.close(this.data);
+    this.dialogRef.close();
   }
 
   createTask(): void {

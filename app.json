@@ -4,19 +4,25 @@
       "id": 1,
       "name": "Iniciar projeto",
       "category": "Documentação",
-      "status": "backlog"
+      "status": "done"
     },
     {
       "id": 2,
       "name": "Listar tarefas",
       "category": "Angular",
-      "status": "todo"
+      "status": "backlog"
     },
     {
       "id": 3,
       "name": "Criar tarefas",
       "category": "Angular",
-      "status": "inProgress"
+      "status": "backlog"
+    },
+    {
+      "id": 4,
+      "name": "asdasdasada",
+      "category": "a",
+      "status": "done"
     }
   ]
 }

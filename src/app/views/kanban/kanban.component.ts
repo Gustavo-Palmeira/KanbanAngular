@@ -23,8 +23,8 @@ export class KanbanComponent implements OnInit {
   review = new Array<Task>();
   done = new Array<Task>();
 
-  editMode = false;
-  createMode = false;
+  manipulateMode = false;
+  cdkDragData = '';
 
   constructor(private taskService: TaskService, private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
@@ -37,7 +37,7 @@ export class KanbanComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  drop(event: CdkDragDrop<any>) {
+  drop(event: CdkDragDrop<any>, title: string) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -46,6 +46,8 @@ export class KanbanComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    event.container.data[event.currentIndex].status = title;
+    this.update(event.container.data[event.currentIndex], 'drop');
   }
 
   list(): void {
@@ -63,50 +65,24 @@ export class KanbanComponent implements OnInit {
     );
   }
 
-  confirmCreation(): void {
-    this.createMode = !this.createMode;
-    const result = this.dialog.open(CreateTaskComponent, {
-      width: '700px',
-      data: {
-        name: '',
-        category: '',
-        status: '',
-      },
-    });
-
-    result.afterClosed().subscribe(
-      (createTaskVo: CreateTaskVo) => {
-        if (createTaskVo.name && createTaskVo.category && createTaskVo.status) {
-          this.create(createTaskVo);
-        }
-      }
-    );
-  }
-
-  confirmDeletion(item: Task): void {
-    const dialog = this.dialog.open(DeleteTaskComponent, {
-      width: '700px',
-      data: {
-        confirm: false,
-        id: item.id,
-        name: item.name,
-      },
-    });
-
-    dialog.afterClosed().subscribe((deleteTaskVo: DeleteTaskVo) => {
-      if (!deleteTaskVo.confirm) {
-        return;
-      } else {
-        this.remove(deleteTaskVo.id);
-      }
-    });
-  }
-
   create(task: CreateTaskVo): void {
     this.taskService.create(task).subscribe(
       () => {
         this.showSnackBar('Tarefa inserida');
         this.list();
+      },
+      error => {
+        this.handleServiceError(error);
+      });
+  }
+
+  update(task: CreateTaskVo, drop: string): void {
+    this.taskService.update(task).subscribe(
+      () => {
+        if (drop !== 'drop') {
+          this.showSnackBar('Tarefa editada');
+          this.list();
+        }
       },
       error => {
         this.handleServiceError(error);
@@ -125,9 +101,68 @@ export class KanbanComponent implements OnInit {
     }
   }
 
+  confirmCreation(): void {
+    this.manipulateMode = !this.manipulateMode;
+    const result = this.dialog.open(CreateTaskComponent, {
+      width: '700px',
+      data: {
+        name: '',
+        category: '',
+        status: '',
+      },
+    });
+
+    result.afterClosed().subscribe(
+      (createTaskVo: CreateTaskVo) => {
+        if (createTaskVo.name && createTaskVo.category && createTaskVo.status) {
+          this.create(createTaskVo);
+        }
+      }
+    );
+  }
+
+  confirmUpdate(task: Task): void {
+    this.manipulateMode = !this.manipulateMode;
+    const result = this.dialog.open(CreateTaskComponent, {
+      width: '700px',
+      data: {
+        id: task.id,
+        name: task.name,
+        category: task.category,
+        status: task.status
+      },
+    });
+
+    result.afterClosed().subscribe(
+      (updateTaskVo: CreateTaskVo) => {
+        if (updateTaskVo.name && updateTaskVo.category && updateTaskVo.status) {
+          this.update(updateTaskVo, 'edit');
+        }
+      }
+    );
+  }
+
+  confirmDeletion(task: Task): void {
+    const result = this.dialog.open(DeleteTaskComponent, {
+      width: '700px',
+      data: {
+        confirm: false,
+        id: task.id,
+        name: task.name,
+      },
+    });
+
+    result.afterClosed().subscribe((deleteTaskVo: DeleteTaskVo) => {
+      if (!deleteTaskVo.confirm) {
+        return;
+      } else {
+        this.remove(deleteTaskVo.id);
+      }
+    });
+  }
+
   handleServiceError(error: HttpErrorResponse): void {
     const fail = error as HttpErrorResponse;
     this.showSnackBar(fail.message);
   }
-
 }
