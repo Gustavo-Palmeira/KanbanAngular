@@ -1,28 +1,32 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "Iniciar projeto",
-      "category": "Documentação",
-      "status": "done"
+      "name": "sdadad",
+      "description": " Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "category": "",
+      "status": "todo",
+      "id": 3
     },
     {
-      "id": 2,
-      "name": "Listar tarefas",
-      "category": "Angular",
-      "status": "backlog"
+      "name": "asdad",
+      "description": " Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "category": "sdfsdf",
+      "status": "backlog",
+      "id": 4
     },
     {
-      "id": 3,
-      "name": "Criar tarefas",
-      "category": "Angular",
-      "status": "backlog"
+      "name": "Criar tela de customização",
+      "description": "A tela deve seguir o layout criado no Figma. ",
+      "category": "",
+      "status": "inProgress",
+      "id": 6
     },
     {
-      "id": 4,
-      "name": "asdasdasada",
-      "category": "a",
-      "status": "done"
+      "name": "Criar endpoint do client-app",
+      "description": "O endpoint deve ser criado usando node e seguindo os exemplos anteriores.",
+      "category": "",
+      "status": "inProgress",
+      "id": 7
     }
   ]
 }

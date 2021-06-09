@@ -6,12 +6,16 @@
         <input matInput [(ngModel)]="name" required>
     </mat-form-field>
     <mat-form-field>
+        <mat-label>Descrição da tarefa</mat-label>
+        <input matInput [(ngModel)]="description">
+    </mat-form-field>
+    <mat-form-field>
         <mat-label>Categoria</mat-label>
-        <input matInput [(ngModel)]="category" required>
+        <input matInput [(ngModel)]="category">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Estágio inicial</mat-label>
-        <mat-select [(ngModel)]="selectedValue">
+        <mat-select [(ngModel)]="selectedValue" required>
           <mat-option *ngFor="let status of statusSelect" [value]="status.value">
             {{status.viewValue}}
           </mat-option>

@@ -1,7 +1,7 @@
 
 <div class="row">
-    <div class="horizontal-box" cdkDragLockAxis="x" cdkDrag>
-        <div cdkDropListGroup class="container">
+    <div class="horizontal-boundary">
+        <div cdkDropListGroup class="container horizontal-box" cdkDragBoundary=".horizontal-boundary" cdkDragLockAxis="x" cdkDrag>
             <div class="content">
                 <h3 class="kanban-title kanban-backlog-title">BACKLOG</h3>
                 <div
@@ -12,9 +12,13 @@
                     <div class="box" *ngFor="let item of backlog" cdkDrag>
                         <div>
                             {{ item.name }}
+                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
-                                <mat-chip color="accent" class="task-tag">
-                                    <span class="task-tag-span">{{ item.category }}</span>
+                                <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
+                                    <span class="task-tag-span" *ngIf="item.category">
+                                        {{ item.category }}
+                                        <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
+                                    </span>
                                 </mat-chip>
                             </mat-chip-list>
                         </div>
@@ -40,9 +44,13 @@
                     <div class="box" *ngFor="let item of todo" cdkDrag>
                         <div>
                             {{ item.name }}
+                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
-                                <mat-chip color="accent" class="task-tag">
-                                    <span class="task-tag-span">{{ item.category }}</span>
+                                <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
+                                    <span class="task-tag-span" *ngIf="item.category">
+                                        {{ item.category }}
+                                        <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
+                                    </span>
                                 </mat-chip>
                             </mat-chip-list>
                         </div>
@@ -68,9 +76,13 @@
                     <div class="box" *ngFor="let item of inProgress" cdkDrag>
                         <div>
                             {{ item.name }}
+                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
-                                <mat-chip color="accent" class="task-tag">
-                                    <span class="task-tag-span">{{ item.category }}</span>
+                                <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
+                                    <span class="task-tag-span" *ngIf="item.category">
+                                        {{ item.category }}
+                                        <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
+                                    </span>
                                 </mat-chip>
                             </mat-chip-list>
                         </div>
@@ -96,9 +108,13 @@
                     <div class="box" *ngFor="let item of review" cdkDrag>
                         <div>
                             {{ item.name }}
+                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
-                                <mat-chip color="accent" class="task-tag">
-                                    <span class="task-tag-span">{{ item.category }}</span>
+                                <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
+                                    <span class="task-tag-span" *ngIf="item.category">
+                                        {{ item.category }}
+                                        <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
+                                    </span>
                                 </mat-chip>
                             </mat-chip-list>
                         </div>
@@ -124,9 +140,13 @@
                     <div class="box" *ngFor="let item of done" cdkDrag>
                         <div>
                             {{ item.name }}
+                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
-                                <mat-chip color="accent" class="task-tag">
-                                    <span class="task-tag-span">{{ item.category }}</span>
+                                <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
+                                    <span class="task-tag-span" *ngIf="item.category">
+                                        {{ item.category }}
+                                        <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
+                                    </span>
                                 </mat-chip>
                             </mat-chip-list>
                         </div>

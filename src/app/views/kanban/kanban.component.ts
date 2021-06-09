@@ -24,7 +24,8 @@ export class KanbanComponent implements OnInit {
   done = new Array<Task>();
 
   manipulateMode = false;
-  cdkDragData = '';
+  removable = false;
+  mouseSelected?: Task;
 
   constructor(private taskService: TaskService, private snackBar: MatSnackBar, private dialog: MatDialog) { }
 
@@ -101,12 +102,27 @@ export class KanbanComponent implements OnInit {
     }
   }
 
+  tagRemove(task: CreateTaskVo): void {
+    task.category = '';
+    this.update(task, 'drop');
+  }
+
+  revealRemove(task: CreateTaskVo): void {
+    this.mouseSelected = task;
+    this.removable = true;
+  }
+
+  hideRemove(): void {
+    this.removable = false;
+  }
+
   confirmCreation(): void {
     this.manipulateMode = !this.manipulateMode;
     const result = this.dialog.open(CreateTaskComponent, {
       width: '700px',
       data: {
         name: '',
+        description: '',
         category: '',
         status: '',
       },
@@ -114,7 +130,7 @@ export class KanbanComponent implements OnInit {
 
     result.afterClosed().subscribe(
       (createTaskVo: CreateTaskVo) => {
-        if (createTaskVo.name && createTaskVo.category && createTaskVo.status) {
+        if (createTaskVo.name && createTaskVo.status) {
           this.create(createTaskVo);
         }
       }

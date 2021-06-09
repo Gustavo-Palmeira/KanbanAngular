@@ -31,6 +31,13 @@
   background-color: rgb(95, 95, 95);
 }
 
+.task-decription {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 5px 0px 5px 10px;
+  color: #ccc;
+}
+
 .task-tag {
   font-size: 10px;
   padding: 0px 7px;
@@ -39,9 +46,20 @@
 
 .task-tag-span {
   background-color: #607d8b;
-  padding: 0px 10px;
+  border: solid 1px #7e9faf;
+  padding: 2px 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.task-tag-span:hover {
+  background-color: #dc143c57;
+}
+
+.mat-chip.mat-standard-chip::after {
+  background-color: transparent;
 }
 
 .box-buttons {
@@ -102,6 +120,7 @@
 }
 
 .box {
+  min-height: 80px;
   padding: 10px 10px;
   margin: 10px 0px;
   border-bottom: solid 1px #ccc;
@@ -151,4 +170,11 @@
 
 .horizontal-box:active {
   cursor: grabbing;
+}
+
+.horizontal-boundary {
+  width: 2500px;
+  padding-left: 900px;
+  position: absolute;
+  left: -1000px;
 }
