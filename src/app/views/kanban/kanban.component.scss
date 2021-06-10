@@ -55,7 +55,11 @@
 }
 
 .task-tag-span:hover {
-  background-color: #dc143c57;
+  background-color: #dc143c57 !important;
+}
+
+.task-icon {
+  text-shadow: 0 0 3px #000;
 }
 
 .mat-chip.mat-standard-chip::after {
@@ -86,7 +90,7 @@
   margin: 10px 0px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #424242;
+  background: #474747;
   color: white;
   font-size: 16px;
 }
@@ -132,7 +136,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: #424242;
+  background: #474747;
   color: white;
   font-size: 16px;
 }
@@ -173,8 +177,8 @@
 }
 
 .horizontal-boundary {
-  width: 2500px;
-  padding-left: 900px;
+  width: 2700px;
+  padding-left: 1100px;
   position: absolute;
-  left: -1000px;
+  left: -1230px;
 }

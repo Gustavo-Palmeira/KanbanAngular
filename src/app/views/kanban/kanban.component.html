@@ -9,13 +9,13 @@
                     [cdkDropListData]="backlog"
                     class="list"
                     (cdkDropListDropped)="drop($event, 'backlog')">
-                    <div class="box" *ngFor="let item of backlog" cdkDrag>
+                    <div class="box" *ngFor="let item of backlog" [ngStyle]="{'background-color': item.background, 'color': item.fontColor}" cdkDrag>
                         <div>
                             {{ item.name }}
-                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
+                            <p class="task-decription" *ngIf="item.description" [style.color]="item.fontColor"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
                                 <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
-                                    <span class="task-tag-span" *ngIf="item.category">
+                                    <span class="task-tag-span" *ngIf="item.category" [ngStyle]="{'background-color': item.tagColor, 'color': item.fontColor}">
                                         {{ item.category }}
                                         <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
                                     </span>
@@ -24,10 +24,10 @@
                         </div>
                         <div class="box-buttons">
                             <button mat-icon-button color="accent" (click)="confirmUpdate(item)">
-                                <mat-icon>edit</mat-icon>
+                                <mat-icon class="task-icon">edit</mat-icon>
                             </button>
                             <button mat-icon-button color="warn" (click)="confirmDeletion(item)">
-                                <mat-icon>remove_circle</mat-icon>
+                                <mat-icon class="task-icon">remove_circle</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -41,13 +41,13 @@
                     [cdkDropListData]="todo"
                     class="list"
                     (cdkDropListDropped)="drop($event, 'todo')">
-                    <div class="box" *ngFor="let item of todo" cdkDrag>
+                    <div class="box" *ngFor="let item of todo" [ngStyle]="{'background-color': item.background, 'color': item.fontColor}" cdkDrag>
                         <div>
                             {{ item.name }}
-                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
+                            <p class="task-decription" *ngIf="item.description" [style.color]="item.fontColor"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
                                 <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
-                                    <span class="task-tag-span" *ngIf="item.category">
+                                    <span class="task-tag-span" *ngIf="item.category" [ngStyle]="{'background-color': item.tagColor, 'color': item.fontColor}">
                                         {{ item.category }}
                                         <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
                                     </span>
@@ -56,10 +56,10 @@
                         </div>
                         <div class="box-buttons">
                             <button mat-icon-button color="accent" (click)="confirmUpdate(item)">
-                                <mat-icon>edit</mat-icon>
+                                <mat-icon class="task-icon">edit</mat-icon>
                             </button>
                             <button mat-icon-button color="warn" (click)="confirmDeletion(item)">
-                                <mat-icon>remove_circle</mat-icon>
+                                <mat-icon class="task-icon">remove_circle</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -73,13 +73,13 @@
                     [cdkDropListData]="inProgress"
                     class="list"
                     (cdkDropListDropped)="drop($event, 'inProgress')">
-                    <div class="box" *ngFor="let item of inProgress" cdkDrag>
+                    <div class="box" *ngFor="let item of inProgress" [ngStyle]="{'background-color': item.background, 'color': item.fontColor}" cdkDrag>
                         <div>
                             {{ item.name }}
-                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
+                            <p class="task-decription" *ngIf="item.description" [style.color]="item.fontColor"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
                                 <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
-                                    <span class="task-tag-span" *ngIf="item.category">
+                                    <span class="task-tag-span" *ngIf="item.category" [ngStyle]="{'background-color': item.tagColor, 'color': item.fontColor}">
                                         {{ item.category }}
                                         <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
                                     </span>
@@ -88,10 +88,10 @@
                         </div>
                         <div class="box-buttons">
                             <button mat-icon-button color="accent" (click)="confirmUpdate(item)">
-                                <mat-icon>edit</mat-icon>
+                                <mat-icon class="task-icon">edit</mat-icon>
                             </button>
                             <button mat-icon-button color="warn" (click)="confirmDeletion(item)">
-                                <mat-icon>remove_circle</mat-icon>
+                                <mat-icon class="task-icon">remove_circle</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -105,13 +105,13 @@
                     [cdkDropListData]="review"
                     class="list"
                     (cdkDropListDropped)="drop($event, 'review')">
-                    <div class="box" *ngFor="let item of review" cdkDrag>
+                    <div class="box" *ngFor="let item of review" [ngStyle]="{'background-color': item.background, 'color': item.fontColor}" cdkDrag>
                         <div>
                             {{ item.name }}
-                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
+                            <p class="task-decription" *ngIf="item.description" [style.color]="item.fontColor"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
                                 <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
-                                    <span class="task-tag-span" *ngIf="item.category">
+                                    <span class="task-tag-span" *ngIf="item.category" [ngStyle]="{'background-color': item.tagColor, 'color': item.fontColor}">
                                         {{ item.category }}
                                         <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
                                     </span>
@@ -120,10 +120,10 @@
                         </div>
                         <div class="box-buttons">
                             <button mat-icon-button color="accent" (click)="confirmUpdate(item)">
-                                <mat-icon>edit</mat-icon>
+                                <mat-icon class="task-icon">edit</mat-icon>
                             </button>
                             <button mat-icon-button color="warn" (click)="confirmDeletion(item)">
-                                <mat-icon>remove_circle</mat-icon>
+                                <mat-icon class="task-icon">remove_circle</mat-icon>
                             </button>
                         </div>
                     </div>
@@ -137,13 +137,13 @@
                     [cdkDropListData]="done"
                     class="list"
                     (cdkDropListDropped)="drop($event, 'done')">
-                    <div class="box" *ngFor="let item of done" cdkDrag>
+                    <div class="box" *ngFor="let item of done" [ngStyle]="{'background-color': item.background, 'color': item.fontColor}" cdkDrag>
                         <div>
                             {{ item.name }}
-                            <p class="task-decription"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
+                            <p class="task-decription" *ngIf="item.description" [style.color]="item.fontColor"> {{ item.description | slice:0:90 }}{{ item.description.length > 90 ? '...' : ''}} </p>
                             <mat-chip-list>
                                 <mat-chip color="accent" class="task-tag" (mouseover)="revealRemove(item)" (mouseleave)="hideRemove()" [removable]="removable" (removed)="tagRemove(item)">
-                                    <span class="task-tag-span" *ngIf="item.category">
+                                    <span class="task-tag-span" *ngIf="item.category" [ngStyle]="{'background-color': item.tagColor, 'color': item.fontColor}">
                                         {{ item.category }}
                                         <mat-icon class="task-tag-remove" matChipRemove *ngIf="removable && item === mouseSelected">clear</mat-icon>
                                     </span>
@@ -152,10 +152,10 @@
                         </div>
                         <div class="box-buttons">
                             <button mat-icon-button color="accent" (click)="confirmUpdate(item)">
-                                <mat-icon>edit</mat-icon>
+                                <mat-icon class="task-icon">edit</mat-icon>
                             </button>
                             <button mat-icon-button color="warn" (click)="confirmDeletion(item)">
-                                <mat-icon>remove_circle</mat-icon>
+                                <mat-icon class="task-icon">remove_circle</mat-icon>
                             </button>
                         </div>
                     </div>

@@ -16,6 +16,9 @@ export class CreateTaskComponent implements OnInit {
   description = this.data.description;
   category = this.data.category;
   status = this.data.status;
+  background = this.data.background;
+  fontColor = this.data.fontColor;
+  tagColor = this.data.tagColor;
   selectedValue = this.data.status;
 
   statusSelect = [
@@ -30,7 +33,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   cancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.data);
   }
 
   createTask(): void {
@@ -38,6 +41,9 @@ export class CreateTaskComponent implements OnInit {
     this.data.description = this.description;
     this.data.category = this.category;
     this.data.status = this.selectedValue;
+    this.data.background = this.background;
+    this.data.fontColor = this.fontColor;
+    this.data.tagColor = this.tagColor;
     if (this.data.name !== '' && this.data.status !== '') {
       this.dialogRef.close(this.data);
     }

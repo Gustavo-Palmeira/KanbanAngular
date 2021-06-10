@@ -1,10 +1,19 @@
 .dialog-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .dialog-button-box {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label {
+  color: #cccccc;
+}
+
+.customization {
+  display: flex;
+  justify-content: space-between;
 }

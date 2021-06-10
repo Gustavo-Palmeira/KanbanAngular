@@ -1,32 +1,44 @@
 {
   "tasks": [
     {
-      "name": "sdadad",
-      "description": " Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-      "category": "",
-      "status": "todo",
-      "id": 3
+      "id": 1,
+      "name": "Apresentar projeto Kanban",
+      "description": "Apresentação do projeto final feito em Angular.",
+      "category": "Angular",
+      "status": "done",
+      "background": "#264d5e",
+      "fontColor": "#e6d5d5",
+      "tagColor": "#162f3c"
     },
     {
-      "name": "asdad",
-      "description": " Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-      "category": "sdfsdf",
+      "id": 2,
+      "name": "Agradecimento",
+      "description": "Agradecer a turma pela atenção.",
+      "category": "Educação",
       "status": "backlog",
-      "id": 4
+      "background": "#b9c940",
+      "fontColor": "#0d0c0c",
+      "tagColor": "#ffffff"
     },
     {
-      "name": "Criar tela de customização",
-      "description": "A tela deve seguir o layout criado no Figma. ",
-      "category": "",
+      "id": 3,
+      "name": "Criar uma tarefa",
+      "description": "Criar uma tarefa utilizando o Diálogo de criação.",
+      "category": "CRUD",
       "status": "inProgress",
-      "id": 6
+      "background": "#723131",
+      "fontColor": "#ffffff",
+      "tagColor": "#011e10"
     },
     {
-      "name": "Criar endpoint do client-app",
-      "description": "O endpoint deve ser criado usando node e seguindo os exemplos anteriores.",
-      "category": "",
-      "status": "inProgress",
-      "id": 7
+      "id": 5,
+      "name": "fgdgd",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "category": "dfgdfgdfghfghfghfgh",
+      "status": "todo",
+      "background": "#661a42",
+      "fontColor": "#d3c5c5",
+      "tagColor": "#aa4141"
     }
   ]
 }

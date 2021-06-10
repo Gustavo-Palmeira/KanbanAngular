@@ -94,7 +94,7 @@ export class KanbanComponent implements OnInit {
     if (id) {
       this.taskService.remove(id).subscribe(() => {
         this.list();
-        this.showSnackBar('Task removida com sucesso!');
+        this.showSnackBar('Tarefa removida');
       },
       error => {
         this.handleServiceError(error);
@@ -125,15 +125,19 @@ export class KanbanComponent implements OnInit {
         description: '',
         category: '',
         status: '',
+        background: '#474747',
+        fontColor: '#ffffff',
+        tagColor: '#607d8b',
       },
     });
 
     result.afterClosed().subscribe(
       (createTaskVo: CreateTaskVo) => {
-        if (createTaskVo.name && createTaskVo.status) {
+      if (createTaskVo) {
+        if (createTaskVo.name  && createTaskVo.status) {
           this.create(createTaskVo);
         }
-      }
+      }},
     );
   }
 
@@ -144,14 +148,18 @@ export class KanbanComponent implements OnInit {
       data: {
         id: task.id,
         name: task.name,
+        description: task.description,
         category: task.category,
-        status: task.status
+        status: task.status,
+        background: task.background,
+        fontColor: task.fontColor,
+        tagColor: task.tagColor,
       },
     });
 
     result.afterClosed().subscribe(
       (updateTaskVo: CreateTaskVo) => {
-        if (updateTaskVo.name && updateTaskVo.category && updateTaskVo.status) {
+        if (updateTaskVo.name && updateTaskVo.status) {
           this.update(updateTaskVo, 'edit');
         }
       }
@@ -169,10 +177,12 @@ export class KanbanComponent implements OnInit {
     });
 
     result.afterClosed().subscribe((deleteTaskVo: DeleteTaskVo) => {
-      if (!deleteTaskVo.confirm) {
-        return;
-      } else {
-        this.remove(deleteTaskVo.id);
+      if (deleteTaskVo) {
+        if (!deleteTaskVo.confirm) {
+          return;
+        } else {
+          this.remove(deleteTaskVo.id);
+        }
       }
     });
   }
