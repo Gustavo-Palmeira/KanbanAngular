@@ -4,18 +4,18 @@
       "id": 1,
       "name": "Apresentar projeto Kanban",
       "description": "Apresentação do projeto final feito em Angular.",
-      "category": "Angular",
-      "status": "done",
+      "category": "",
+      "status": "backlog",
       "background": "#264d5e",
       "fontColor": "#e6d5d5",
       "tagColor": "#162f3c"
     },
     {
       "id": 2,
-      "name": "Agradecimento",
+      "name": "Agradecer a turma.",
       "description": "Agradecer a turma pela atenção.",
       "category": "Educação",
-      "status": "backlog",
+      "status": "review",
       "background": "#b9c940",
       "fontColor": "#0d0c0c",
       "tagColor": "#ffffff"
@@ -24,21 +24,41 @@
       "id": 3,
       "name": "Criar uma tarefa",
       "description": "Criar uma tarefa utilizando o Diálogo de criação.",
-      "category": "CRUD",
-      "status": "inProgress",
+      "category": "",
+      "status": "todo",
       "background": "#723131",
       "fontColor": "#ffffff",
       "tagColor": "#011e10"
     },
     {
       "id": 5,
-      "name": "fgdgd",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-      "category": "dfgdfgdfghfghfghfgh",
+      "name": "Apreseasdasdasdasda",
+      "description": "Apresentar a pasdasdasdasd",
+      "category": "Kanban",
       "status": "todo",
-      "background": "#661a42",
+      "background": "#723756",
       "fontColor": "#d3c5c5",
-      "tagColor": "#aa4141"
+      "tagColor": "#653e3e"
+    },
+    {
+      "id": 6,
+      "name": "Verificar dúvidas",
+      "description": "Verificar se alguém possui alguma dúvida.",
+      "category": "Informação",
+      "status": "review",
+      "background": "#e1ff00",
+      "fontColor": "#45044e",
+      "tagColor": "#ffffff"
+    },
+    {
+      "name": "BUASIUAHS",
+      "description": "",
+      "category": "",
+      "status": "backlog",
+      "background": "#474747",
+      "fontColor": "#ffffff",
+      "tagColor": "#607d8b",
+      "id": 7
     }
   ]
 }

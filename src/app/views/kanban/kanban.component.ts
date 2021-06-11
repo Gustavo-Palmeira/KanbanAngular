@@ -159,8 +159,10 @@ export class KanbanComponent implements OnInit {
 
     result.afterClosed().subscribe(
       (updateTaskVo: CreateTaskVo) => {
-        if (updateTaskVo.name && updateTaskVo.status) {
-          this.update(updateTaskVo, 'edit');
+        if(updateTaskVo) {
+          if (updateTaskVo.name && updateTaskVo.status) {
+            this.update(updateTaskVo, 'edit');
+          }
         }
       }
     );

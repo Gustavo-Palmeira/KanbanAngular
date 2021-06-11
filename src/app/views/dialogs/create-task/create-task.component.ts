@@ -30,6 +30,7 @@ export class CreateTaskComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    console.log(this.background);
   }
 
   cancel(): void {
